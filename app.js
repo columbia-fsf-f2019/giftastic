@@ -45,7 +45,6 @@ $("#submit").on("click", function(event) {
 //click the char button get queryurl
 //then get the gif
 $("#gif-button-container").on("click", function(event) {
-  console.log(event.target.innerText);
   var clickedChar = event.target.innerText;
   //create queryURL
   var queryURL =
@@ -57,12 +56,10 @@ $("#gif-button-container").on("click", function(event) {
     url: queryURL,
     method: "GET"
   }).then(function(response) {
-    console.log(queryURL);
-    console.log(response);
     $("#gif-container").empty();
     var results = response.data;
     //paragraph for rating and img for image
-    for (i = 0; i < results.length; i++) {
+    for (var i = 0; i < results.length; i++) {
       var gifDiv = $("<div>");
       gifDiv.addClass("gifDiv");
       var ratingP = $("<p>");
