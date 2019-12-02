@@ -47,10 +47,12 @@ $("#submit").on("click", function(event) {
 $("#gif-button-container").on("click", function(event) {
   console.log(event.target.innerText);
   var clickedChar = event.target.innerText;
+  //create queryURL
   var queryURL =
     "https://api.giphy.com/v1/gifs/search?q=" +
     clickedChar +
     "&api_key=Tq9MmaROwC1TU9yfsLoV3faW16cqlg08&limit=10";
+  //get the infromation from API
   $.ajax({
     url: queryURL,
     method: "GET"
@@ -67,6 +69,7 @@ $("#gif-button-container").on("click", function(event) {
       ratingP.text(`Rating: ${results[i].rating}`);
       ratingP.addClass("rating");
       var gifImg = $("<img>");
+      //set the attribute for still and animate function
       gifImg.attr("src", results[i].images.fixed_height_still.url);
       gifImg.attr("data-still", results[i].images.fixed_height_still.url);
       gifImg.attr("data-animate", results[i].images.fixed_height.url);
@@ -78,6 +81,7 @@ $("#gif-button-container").on("click", function(event) {
     }
   });
 });
+//make it animate and still with clicks.
 $("#gif-container").on("click", function(event) {
   var thisImg = event.target;
   var dataStatus = $(thisImg).attr("data-status");
