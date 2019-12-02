@@ -1,0 +1,76 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  background-color: #212224;
+  font-family: "Roboto", sans-serif;
+}
+header {
+  text-align: center;
+  color: #00d7c3;
+  font-size: 40pt;
+  font-family: "Bebas Neue", cursive;
+}
+div#gif-container {
+  float: left;
+  width: 67%;
+  padding: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  background-color: transparent;
+  border: 2px solid #00d7c3;
+  border-radius: 5px;
+  -webkit-transition: all 0.15s ease-in-out;
+  transition: all 0.15s ease-in-out;
+  color: #00d7c3;
+  padding: 2px;
+  margin: 4px;
+}
+.gifDiv {
+  margin: 10px;
+}
+.rating {
+  color: rgb(47, 93, 180);
+  margin: 0 auto;
+  font-size: 10pt;
+}
+.gifImg {
+  margin-top: 5px;
+}
+div#search-container {
+  float: right;
+  width: 30%;
+}
+form {
+  margin: 5px;
+}
+button {
+  font-size: 11pt;
+  padding: 2px;
+}
+#submit {
+  background-color: transparent;
+  border: 2px solid #8b4fd8;
+  border-radius: 5px;
+  -webkit-transition: all 0.15s ease-in-out;
+  transition: all 0.15s ease-in-out;
+  color: #8b4fd8;
+  margin: 2px;
+  padding: 2px;
+}
+.char-button {
+  background-color: transparent;
+  border: 2px solid #00d7c3;
+  border-radius: 5px;
+  -webkit-transition: all 0.15s ease-in-out;
+  transition: all 0.15s ease-in-out;
+  color: #00d7c3;
+  margin: 2px;
+  padding: 2px;
+}
+.char-button:hover {
+  box-shadow: 0 0 4px 0 #00d7c3 inset, 0 0 20px 2px #00d7c3;
+  border: 3px solid #00d7c3;
+}
