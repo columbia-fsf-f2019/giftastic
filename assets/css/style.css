@@ -1,0 +1,51 @@
+h3 {
+  font-weight: 800;
+}
+
+.actor-button {
+  background-color: rgb(22, 67, 101);
+  color: aliceblue;
+}
+
+.actor-button:hover {
+  opacity: 0.8;
+}
+.single-giph-holder {
+  float: left;
+}
+.giph-image {
+  border: 2px solid firebrick;
+}
+.rating-holder {
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  text-align: center;
+}
+
+#input-field {
+  margin-top: 10px;
+  text-align: center;
+}
+
+.buttons {
+  color: antiquewhite;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  font-size: 20px;
+  background-color: black;
+  padding: 5px;
+  padding-left: 15px;
+  padding-right: 15px;
+  border: 3px solid rgb(19, 50, 84);
+  margin-top: 10px;
+  margin-left: 10px;
+}
+
+.buttons:hover {
+  background-color: rgb(19, 50, 84);
+}
+
+.clear-storage-button {
+  display: none;
+}
+.stored-info-warning {
+  text-align: center;
+}
