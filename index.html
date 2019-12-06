@@ -1,41 +1,36 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Cartoon Giftastic!</title>
-     
-    <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Giftastic!</title>
+    
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css" />
+    <link href="https://fonts.googleapis.com/css?family=Alatsi&display=swap" rel="stylesheet">
 
 </head>
-<body>
+<body>    
     <div class="container">
-        <div class="row">
-            <div class="col-9">
-                <div id="button"></div>
-            </div>
+        <div class = "row">
+            <div class="buttons-view"></div>
         </div>
-        <div class="row">
-            <div class="col-3">
-                <form id="cartoon-selector">
-                    <label id="direction">Add Cartoon:</label>
-                    <input type="text" id="cartoon-input">
-                    <input type="submit" id="addCartoon">
+        <div class = "row">
+            <div class="col-lg-9 container-fluid">
+                <div id="villain-view"></div>
+            </div>
+            <div class="col-lg-3">
+                <form id="villain-form">
+                <label for="villain-input">Add a Super Villain:</label>
+                <input type="text" class="form-control col-12" id="villain-input"><br>
+                <input class="btn btn-warning" id="add-villain" type="submit" value="Submit">
                 </form>
             </div>
         </div>
-        <br>
-        <div class="row">
-            <div class="col-12">
-                <div id="cartoons"></div>
-            </div>
-        </div>
-    </div> 
+    </div>
 </body>
 
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script src="assets/javascript/app.js"></script>
 
 </html>
