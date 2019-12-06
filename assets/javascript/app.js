@@ -63,6 +63,7 @@ function renderGifs(array) {
       )[0].innerHTML += `<div class="col-4"><p mb-5>${array[i].title}</p><img
       src="${array[i].images.fixed_height_small.url}"
       alt="${array[i].images.fixed_height_small_still.url}"
+      data-alt="${array[i].images.fixed_height_small.url}"
       data-state="animated"
       width="100%"
       class="giphy-embed"
@@ -75,6 +76,7 @@ function renderGifs(array) {
       )[0].innerHTML += `<div class="col-4"><p mb-5>${array[i].title}</p><img
       src="${array[i].images.fixed_height_small.url}"
       alt="${array[i].images.fixed_height_small_still.url}"
+      data-alt="${array[i].images.fixed_height_small.url}"
       data-state="animated"
       width="100%"
       class="giphy-embed"
@@ -86,26 +88,24 @@ function renderGifs(array) {
       )[0].innerHTML += `<div class="col-4"><p mb-5>${array[i].title}</p><img
       src="${array[i].images.fixed_height_small.url}"
       alt="${array[i].images.fixed_height_small_still.url}"
+      data-alt="${array[i].images.fixed_height_small.url}"
       data-state="animated"
       width="100%"
       class="giphy-embed"
       allowfullscreen
     ></div>`;
     }
-    gifListener(array, i);
   }
 }
 
-function gifListener(array, arrayNum) {
-  $(".gifContainer").on("click", ".giphy-embed", function() {
-    if ($(this).attr("data-state") === "animated") {
-      var stillGif = $(this).attr("alt");
-      var animGif = $(this).attr("src");
-      $(this).attr("src", stillGif);
-      $(this).attr("data-state", "still");
-    } else if ($(this).attr("data-state") === "still") {
-      $(this).attr("src", animGif);
-      $(this).attr("data-state", "animated");
-    }
-  });
-}
+$(".gifContainer").on("click", ".giphy-embed", function() {
+  var stillGif = $(this).attr("alt");
+  var animGif = $(this).attr("data-alt");
+  if ($(this).attr("data-state") === "animated") {
+    $(this).attr("data-state", "still");
+    $(this).attr("src", stillGif);
+  } else if ($(this).attr("data-state") === "still") {
+    $(this).attr("src", animGif);
+    $(this).attr("data-state", "animated");
+  }
+});
