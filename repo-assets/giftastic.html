@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Giftastic Assignment</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  </head>
+
+  <!-- my Gif api key Fgt66xFtfUxFToAkOR3jZQ59AxAMJXzl -->
+
+  <!-- go to Giphy api, set up production key -->
+  <!-- look past assignments for how best to use jQuery to add html elements to the page
+ie, the buttons. We did this in an earlier exercise. Check this out as a referrence
+https://www.youtube.com/watch?v=Kp7Xy2LScLM-->
+  <!-- need to create an array where items will be added to or pushed -->
+
+  <body>
+    <h1>MAY WE HAVE THE HOUNDS PLEASE!</h1>
+    <h1>Cool Curated Creatures Collection (C4)</h1>
+<div class="container">
+    <div id="buttons">buttons go here
+            <button class="breed">Basenji!</button>
+            <button class="breed">15" Beagle</button>
+            <button class="breed">13" Beagle</button>
+            <button class="breed">Dachshund</button>
+            <button class="breed">Whippet</button>
+            <button class="breed">Bassett Hound</button>
+            <button class="breed">Greyhound</button>
+            <button class="breed">Afgan Hound</button> 
+            <button class="breed">westminster Basenji</button> 
+    </div>
+    
+
+    <form id="search-form">
+    <label for="search-field" >Search Here!</label>
+    <input type="text" id="search-field"></br>
+    <input type="submit" value="submit">
+</form>
+
+<div id="searches"></div>
+
+   
+
+    </div>
+
+    <script  src="gif.js" type="text/javascript">
+
+
+      $("buttons").on("click", function() {
+        alert("You just clicked the Basenji Button!");
+      });
+    </script>
+  </body>
+</html>
