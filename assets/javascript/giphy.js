@@ -48,14 +48,14 @@ function parseResponse(response) {
     var p = $("<p>").text("Rating: " + rating);
     var gifStillURL = results[i].images.fixed_height_still.url;
     var gifAnimateURL = results[i].images.fixed_height.url;
-    var temp_gif = $("<img>")
+    var tempGif = $("<img>")
       .addClass("gif")
       .attr("src", gifStillURL)
       .attr("data-still", gifStillURL)
       .attr("data-animate", gifAnimateURL)
       .attr("data-state", "still");
     gifDiv.prepend(p);
-    gifDiv.prepend(temp_gif);
+    gifDiv.prepend(tempGif);
     $(".gifs").prepend(gifDiv);
   }
   // console.log($(".gif"));
@@ -90,6 +90,7 @@ function renderButtons() {
     var animalName = animals[i];
     var animalButton = $("<button>")
       .text(animalName)
+      .addClass("btn btn-info m-1")
       .attr("animal", animalName);
     animalButton.on("click", eventHandlerButtonClicked);
     $(".buttons").append(animalButton);
@@ -106,7 +107,7 @@ $("#add-animal").on("click", function(event) {
     animals.push(newAnimal);
     $("#animal-input").val("");
     renderButtons();
-    console.log(animals);
+    // console.log(animals);
   }
 });
 
