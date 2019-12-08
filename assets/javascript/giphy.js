@@ -22,47 +22,25 @@ var animals = [
   "salamander",
   "frog"
 ];
-// render buttons
-function renderButtons() {
-  // clear previous contents in area for buttons and gifs
-  $(".buttons").empty();
-  $(".gifs").empty();
-  for (var i = 0; i < animals.length; i++) {
-    var animalName = animals[i];
-    var animalButton = $("<button>")
-      .text(animalName)
-      .attr("animal", animalName);
-    animalButton.on("click", eventHandlerButtonClicked);
-    $(".buttons").append(animalButton);
+// Event listener for the GIF click events. Toggle its animation.
+function eventHandlerGifClicked() {
+  var state = $(this).attr("data-state");
+  console.log(state);
+  if (state === "still") {
+    $(this).attr("src", $(this).attr("data-animate"));
+    $(this).attr("data-state", "animate");
+  } else if (state === "animate") {
+    $(this).attr("src", $(this).attr("data-still"));
+    $(this).attr("data-state", "still");
+  } else {
+    alert("Invalid State");
   }
 }
-
-function eventHandlerButtonClicked() {
-  tempAnimalName = $(this).attr("animal");
-  //alert(tempAnimalName);
-  reloadGifs(tempAnimalName);
-}
-
-function reloadGifs(tempAnimalName) {
-  //alert("Refresh GIFs here: " + tempAnimalName);
-  //Clear all GIFs
-  $(".gifs").empty();
-  var animal = tempAnimalName;
-  console.log(animal);
-  var queryURL = `https://api.giphy.com/v1/gifs/search?q=${animal}&api_key=6Ws2L6DO87tHU6XxSqZP6gyxoQaWgVn2&limit=10`;
-  $.ajax({
-    url: queryURL,
-    method: "GET"
-  }).then(function(response) {
-    parseResponse(response);
-  });
-}
-
 // Parse the results from the query and insert the GIFs
 function parseResponse(response) {
-  console.log(response);
+  //   console.log(response);
   var results = response.data;
-  console.log(results);
+  //   console.log(results);
   // Insert a <div> for each GIF in results
   for (var i = 0; i < results.length; i++) {
     var gifDiv = $("<div>");
@@ -84,22 +62,39 @@ function parseResponse(response) {
   // Add event listeners to each GIF
   $(".gif").on("click", eventHandlerGifClicked);
 }
-
-// Event listener for the GIF click events. Toggle its animation.
-function eventHandlerGifClicked() {
-  var state = $(this).attr("data-state");
-  console.log(state);
-  if (state === "still") {
-    $(this).attr("src", $(this).attr("data-animate"));
-    $(this).attr("data-state", "animate");
-  } else if (state === "animate") {
-    $(this).attr("src", $(this).attr("data-still"));
-    $(this).attr("data-state", "still");
-  } else {
-    alert("Invalid State");
+function reloadGifs(tempAnimalName) {
+  //alert("Refresh GIFs here: " + tempAnimalName);
+  //Clear all GIFs
+  $(".gifs").empty();
+  var animal = tempAnimalName;
+  //   console.log(animal);
+  var queryURL = `https://api.giphy.com/v1/gifs/search?q=${animal}&api_key=6Ws2L6DO87tHU6XxSqZP6gyxoQaWgVn2&limit=10`;
+  $.ajax({
+    url: queryURL,
+    method: "GET"
+  }).then(function(response) {
+    parseResponse(response);
+  });
+}
+function eventHandlerButtonClicked() {
+  var tempAnimalName = $(this).attr("animal");
+  //alert(tempAnimalName);
+  reloadGifs(tempAnimalName);
+}
+// render buttons
+function renderButtons() {
+  // clear previous contents in area for buttons and gifs
+  $(".buttons").empty();
+  $(".gifs").empty();
+  for (var i = 0; i < animals.length; i++) {
+    var animalName = animals[i];
+    var animalButton = $("<button>")
+      .text(animalName)
+      .attr("animal", animalName);
+    animalButton.on("click", eventHandlerButtonClicked);
+    $(".buttons").append(animalButton);
   }
 }
-
 // When user enter an animal, check if it is in the array,
 // if not, add it to the buttons.
 $("#add-animal").on("click", function(event) {
