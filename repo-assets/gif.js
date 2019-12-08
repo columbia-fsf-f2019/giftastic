@@ -1,64 +1,85 @@
-// alert("I'm working!!");
+$(function() {
+  populateButtons(houndArr, "clickButton", "#buttonsArea");
+});
 
-$(document).ready(function() {
-  // create function that will populate page with buttons
+var houndArr = [
+  "Basenji",
+  "Beagle",
+  "Dachshund",
+  "Greyhound",
+  "Whippet",
+  "Pharaoh hound",
+  "Rhodesian ridgeback",
+  "Basset hound",
+  "Afghan hound",
+  "American foxhound"
+];
 
-  // Create an array of hound breeds - Do I do this by creating the actual
-  // array? Or is there a method w/js that will add them to an array as ppl search?
-
-  var topicsArr = ["Basenji", "Beagle", "Rhodesian Ridgeback"];
-
-  function createButtons(topicsArr) {
-    // this function creates buttons to be displayed
-    // need for loop to loop through topics array
-    // inside loop need to create a new button for each -add text of the topics to buttons
-    // append button to the page on a specific div
+// function to make buttons and add to page
+function populateButtons(houndArr, classToAdd, areaToAddTo) {
+  $(areaToAddTo).empty();
+  for (var i = 0; i < houndArr.length; i++) {
+    var dog = $("<button>");
+    dog.addClass(classToAdd);
+    dog.attr("data-type", houndArr[i]);
+    dog.text(houndArr[i]);
+    $(areaToAddTo).append(dog);
   }
+}
 
-  //   $(function() {
-  //     // console.log("I'm working!");
-  //     placeButtons(addToArray, "searchButtons");
-  //   });
+//
 
-  function buildQueryURL(topic) {
-    var queryURL =
-      "https://api.giphy.com/v1/gifs/random?api_key=Fgt66xFtfUxFToAkOR3jZQ59AxAMJXzl&tag=" +
-      topic;
+$(document).on("click", ".clickButton", function() {
+  var type = $(this).data("type");
+  var queryURL =
+    "http://api.giphy.com/v1/gifs/search?q=" +
+    type +
+    "&api_key=Fgt66xFtfUxFToAkOR3jZQ59AxAMJXzl&limit=10";
 
-    return queryURL;
+  // "http://api.giphy.com/v1/gifs/random?api_key=Fgt66xFtfUxFToAkOR3jZQ59AxAMJXzl&tag=";
+  $.ajax({ url: queryURL, method: "GET" }).done(function(response) {
+    // console.log(response);
+    for (var i = 0; i < response.data.length; i++) {
+      var searchDiv = $('<div class="search-item">');
+      var rating = response.data[i].rating;
+      var p = $("<p>").text("Rating: " + rating);
+      var animated = response.data[i].images.fixed_height.url;
+      var still = response.data[i].images.fixed_height_still.url;
+      var image = $("<img>");
+
+      // below is the still version upon load, animated upon click
+      image.attr("src", still);
+      image.attr("data-still", still);
+      image.attr("data-animated", animated);
+      image.attr("data-state", "still");
+      image.addClass("searchImage");
+      // referrence paragraph tag with rating
+      searchDiv.append(p);
+      searchDiv.append(image);
+      $("#searches").append(searchDiv);
+    }
+  });
+});
+
+// write some function that will make images go from still to animate
+
+$(document).on("click", ".searchImage", function() {
+  var state = $(this).attr("data-state");
+  if (state === "still") {
+    $(this).attr("src", $(this).data("animated"));
+    $(this).attr("data-state", "animated");
+  } else {
+    $(this).attr("src", $(this).data("still"));
+    $(this).attr("data-state", "still");
   }
-  function getImageGif(hound) {
-    var queryURL = buildQueryURL(hound);
+});
 
-    // Perfoming an AJAX GET request to our queryURL
-    $.ajax({
-      url: queryURL,
-      method: "GET"
-    })
-
-      // After the data from the AJAX request comes back
-      .then(function(response) {
-        // Saving the image_original_url property
-        var imageUrl = response.data.image_original_url;
-
-        // Creating and storing an image tag
-        var dogImage = $("<img>");
-
-        // Setting the dogImage src attribute to imageUrl
-        dogImage.attr("src", imageUrl);
-        dogImage.attr("alt", "dog image");
-
-        // Prepending the dogImage to the images div
-        $("#searches").prepend(dogImage);
-      });
-  }
-
-  function buttonHandler() {
-    // grab the text, call getImageGif - pass in the text from the button (actual dog name)
-    // get's passed into api alerts Gif as to which one to return
-    var dogBreed = $(this).text();
-    getImageGif(dogBreed);
-  }
-
-  $(".breed").on("click", buttonHandler);
+$("#search-input").on("click", function() {
+  // .eq grabs 1st input in html (not submit)
+  var newFind = $("input")
+    .eq(0)
+    .val();
+  houndArr.push(newFind);
+  populateButtons(houndArr, "clickButton", "#buttonsArea");
+  return false;
 });

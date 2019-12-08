@@ -4,54 +4,29 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Giftastic Assignment</title>
+    <title>Hound Group Giftastic</title>
     <link rel="stylesheet" href="style.css" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
   </head>
-
-  <!-- my Gif api key Fgt66xFtfUxFToAkOR3jZQ59AxAMJXzl -->
-
-  <!-- go to Giphy api, set up production key -->
-  <!-- look past assignments for how best to use jQuery to add html elements to the page
-ie, the buttons. We did this in an earlier exercise. Check this out as a referrence
-https://www.youtube.com/watch?v=Kp7Xy2LScLM-->
-  <!-- need to create an array where items will be added to or pushed -->
-
   <body>
-    <h1>MAY WE HAVE THE HOUNDS PLEASE!</h1>
-    <h1>Cool Curated Creatures Collection (C4)</h1>
-<div class="container">
-    <div id="buttons">buttons go here
-            <button class="breed">Basenji!</button>
-            <button class="breed">15" Beagle</button>
-            <button class="breed">13" Beagle</button>
-            <button class="breed">Dachshund</button>
-            <button class="breed">Whippet</button>
-            <button class="breed">Bassett Hound</button>
-            <button class="breed">Greyhound</button>
-            <button class="breed">Afgan Hound</button> 
-            <button class="breed">westminster Basenji</button> 
+    <h1>Welcome to the 200th Anniversary of the AKC Westminster Kennel Club Dog Show!</h1>
+    <h2>May we have the Hounds Please!!</h2>
+    <div class="container">
+<!-- we populate buttons here with jQuery -->
+      <div id="buttonsArea"></div>
     </div>
-    
-
+    <!-- field and submit button for user to search topic -->
     <form id="search-form">
-    <label for="search-field" >Search Here!</label>
-    <input type="text" id="search-field"></br>
-    <input type="submit" value="submit">
-</form>
+      <label id="search-title">Find your best-in-show!</label>
+      <input type="text" id="search-input"></form><br>
+      <input type="submit" value="submit">
+    </form>
 
-<div id="searches"></div>
-
-   
-
-    </div>
-
-    <script  src="gif.js" type="text/javascript">
+    <!-- div to hold gifs will modify with jQuery-->
+    <div id="searches"></div>
 
 
-      $("buttons").on("click", function() {
-        alert("You just clicked the Basenji Button!");
-      });
-    </script>
+    <script src="gif.js" type="text/javascript"></script>
   </body>
 </html>
