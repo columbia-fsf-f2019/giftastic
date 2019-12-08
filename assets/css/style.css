@@ -1,0 +1,59 @@
+@import url("https://fonts.googleapis.com/css?family=Press+Start+2P&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Roboto+Slab&display=swap");
+body {
+  background-color: #eee;
+  font-family: Roboto Slab;
+  font-size: 16px;
+}
+
+.col-sm-4 {
+  padding: 5px 0;
+}
+
+header {
+  padding: 50px 0;
+  text-align: center;
+  background: #77ea86;
+}
+header > h1 {
+  font-family: "Press Start 2P", cursive;
+  text-shadow: 2px 2px #333;
+}
+
+.col-sm-3 {
+  padding: 0;
+}
+
+button {
+  margin: 5px;
+  box-shadow: 1px 1px #bbb;
+}
+
+#moodbtns {
+  margin: 5px;
+  padding: 10px 5px;
+  background-color: #4d665c;
+  border-radius: 5px;
+}
+
+#contentarea {
+  padding: 10px;
+}
+
+.card-body {
+  padding-bottom: 5px;
+}
+
+.card-header {
+  padding-bottom: 5px;
+  background-color: #103d2b;
+  color: #fff;
+}
+#newmood {
+  background-color: #8ab8a5;
+  border: none;
+}
+#newmood:hover {
+  background-color: #103d2b;
+  border: none;
+}
