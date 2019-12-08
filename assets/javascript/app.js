@@ -1,6 +1,7 @@
 //create an array of moods
 var moods = ["happy", "sad", "excited", "chill", "worried", "scared"];
 var newmood;
+//listen for new mood input from user and create button for mood
 $("#newmood").click(function() {
   newmood = $("input")
     .val()
@@ -9,11 +10,12 @@ $("#newmood").click(function() {
   clearGifBtns();
   giftastic();
 });
+
 function giftastic() {
   moods.forEach(mood => {
     //create a button element for each array item
     $("#moodbtns").append(
-      `<button class="btn btn-info" id="${mood}">${mood}</button>`
+      `<button class="btn btn-light" id="${mood}">${mood}</button>`
     );
     //add event listner to each mood button
     $(`#${mood}`).click(function() {
@@ -42,13 +44,14 @@ function giftastic() {
     });
   });
 }
+
 giftastic();
-//listen for new mood input from user and create button for mood
 
 //clear the gif field everytime a new mod is clicked
 function clearGifs() {
   $("#giphys").html("");
 }
+
 //clear gif btns
 function clearGifBtns() {
   $("#moodbtns").html("");
