@@ -11,13 +11,12 @@ body {
 }
 
 header {
-  padding: 50px;
+  padding: 50px 0;
   text-align: center;
   background: #77ea86;
 }
 header > h1 {
   font-family: "Press Start 2P", cursive;
-  font-size: 50px;
   text-shadow: 2px 2px #333;
 }
 
