@@ -1,11 +1,15 @@
 ## Description 
 
-Add a description of work completed here, including a screenshot or brief gif
+Giftastic!
+Theme: Anime
+
 
 ## Known issues
 
-Call out any known issues or bugs, including the steps required to reproduce each issue
+Pausing only works for last top image. 
 
 ## Follow up items
 
-How could you improve and iterate upon this work given more time What was difficult?  What went well?
+- Need to debug event listener on images
+- Add more styling
+- Filter better results from ajax call 
