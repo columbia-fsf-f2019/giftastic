@@ -33,26 +33,30 @@ function onBtnClick() {
 
           var p = $("<p>").text("Rating: " + results[i].rating);
 
-          var animeImage = $("<img>");
+          var animeImg = $("<img>");
 
           
           
-          animeImage.attr("src", results[i].images.fixed_height.url).addClass("gif").attr("still", results[i].images.fixed_height_still.url).attr("animated", results[i].images.fixed_height.url);
+          var animeImage = animeImg.attr("src", results[i].images.fixed_height.url).addClass("gif").attr("still", results[i].images.fixed_height_still.url).attr("animated", results[i].images.fixed_height.url);
+          animeImage.click(()=> {
+          
+            var state = $(animeImage).attr("src");
+            var still = $(animeImage).attr("still");
+            var animated = $(animeImage).attr("animated");
+            console.log(state, still, animated);
+            if (state === animated) {
+              $(animeImage).attr("src", still);
+              
+            } else {
+              $(animeImage).attr("src", animated);
+             
+            }
+          });
           animeDiv.append(p);
           animeDiv.append(animeImage);
           $("#gifsHere").prepend(animeDiv);
-          $(".gif").on("click", ()=> {
-              
-              var state = $(this).attr("src");
-              var still = $(this).attr("still");
-              var animated = $(this).attr("animated");
-              if (state === animated) {
-                                   
-                $(this).attr("src", still);
-              } else {
-                $(this).attr("src", animated);
-              }
-          });
+        
+          
           
         }
     });    
@@ -70,6 +74,7 @@ $("#submitBtn").on("click", (e) => {
     $("#btnsHere").append(animeBtn);
    
 });
+
 
 
 
