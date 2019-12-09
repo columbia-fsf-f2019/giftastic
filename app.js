@@ -3,10 +3,10 @@ $(()=> {
 
 var animeBtn;
 var anime;
-var animes = ["Naruto", "DragonBall", "Kimi No Na Wa", "One Piece", "Cowboy Bebop"];
+var animes = ["Naruto", "DragonBall", "Attack On Titan", "Bleach", "Cowboy Bebop"];
 
 var initialBtns = animes.map(value => {
-   return $("<button>").addClass("anime").text(value).click((e)=> {
+   return $("<button>").addClass("btn-primary").text(value).click((e)=> {
         anime = e.target.innerHTML;
         onBtnClick();
         
@@ -37,10 +37,22 @@ function onBtnClick() {
 
           
           
-          animeImage.attr("src", results[i].images.fixed_height.url);
+          animeImage.attr("src", results[i].images.fixed_height.url).addClass("gif").attr("still", results[i].images.fixed_height_still.url).attr("animated", results[i].images.fixed_height.url);
           animeDiv.append(p);
           animeDiv.append(animeImage);
           $("#gifsHere").prepend(animeDiv);
+          $(".gif").on("click", ()=> {
+              
+              var state = $(this).attr("src");
+              var still = $(this).attr("still");
+              var animated = $(this).attr("animated");
+              if (state === animated) {
+                                   
+                $(this).attr("src", still);
+              } else {
+                $(this).attr("src", animated);
+              }
+          });
           
         }
     });    
@@ -51,11 +63,11 @@ $("#submitBtn").on("click", (e) => {
     e.preventDefault();
     anime = $("input").val().trim();
     onBtnClick(); 
-    animeBtn = $("<button>").addClass("anime").text(anime).click((e)=> {
+    animeBtn = $("<button>").addClass("btn-success").text(anime).click((e)=> {
         anime = e.target.innerHTML;
         onBtnClick();
     });
-    $("#btnsHere").prepend(animeBtn);
+    $("#btnsHere").append(animeBtn);
    
 });
 
