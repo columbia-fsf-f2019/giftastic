@@ -19,7 +19,7 @@ $("#btnsHere").append(initialBtns);
 function onBtnClick() {
     
     
-    var queryUrl = "http://api.giphy.com/v1/gifs/search?q=" + anime + "&api_key=cIHSqwOmX0ajlsyyyBBeIyJLB35AdXTP&limit=5";
+    var queryUrl = "https://api.giphy.com/v1/gifs/search?q=" + anime + "&api_key=cIHSqwOmX0ajlsyyyBBeIyJLB35AdXTP&limit=5";
     $.ajax({
         url: queryUrl,
         method: "GET"
