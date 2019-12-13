@@ -73,16 +73,17 @@ $(document).on("click", ".image", function() {
 
 // SUBMIT BUTTON BUG! tried several fixes, clears page of images, won't load new buttons
 // type in field and click in field will render new buttons
-$("#search-input").on("click", function() {
+$("#submit").on("click", function(e) {
   // .eq grabs 1st input in html w/ text (not submit)
-  var newFind = $("input")
-    .eq(0)
+  e.preventDefault();
+  var newFind = $("#search-input")
+    // .eq(0)
     .val();
 
   houndArr.push(newFind);
 
-  buttonZone(houndArr, "clickButton", "#buttons-here");
+  // buttonZone(houndArr, "clickButton", "#buttons-here");
 
   buttonZone(houndArr, "clickButton", "#buttons-here");
-  return true;
+  // return true;
 });
