@@ -4,9 +4,41 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>giftatic</title>
+    <title>Document</title>
 </head>
 <body>
+    <div>
+        <input type="text">
+        <button class="press-input">Search</button>
+    </div>
+    <div class="display" id="images"></div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/javascript">
+    $("button").on("click", function() {
+        var newButton=document.createElement('button');
+        newButton.classList='press-input';
+        newButton.innerHTML= $("input").val();
+        document.body.appendChild(newButton);
+        var searchInput = $("input").val();
+        var queryUrl = "https://api.giphy.com/v1/gifs/random?api_key=BkaUZZWcFij6J7AoQj3WtPb1R2p9O6V9&tag=" +searchInput 
+        $.ajax( {
+            url: queryUrl,
+            meta: "GET"
+        }).then(function(response) {
+        console.log(response);
+        var imageUrl = response.data.image_original_url;
+
+          
+          var image = $("<img>");
+
+          image.attr("src", imageUrl);
+          image.attr("alt", "image");
+
+          // Prepending the image to the images div
+          $("#images").prepend(image);
+        });
+        })
     
+    </script>
 </body>
 </html>
