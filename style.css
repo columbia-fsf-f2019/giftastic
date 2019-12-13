@@ -1,0 +1,58 @@
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #dddddd;
+}
+
+#search-field {
+  width: 90%;
+  margin-left: 20px;
+  
+}
+
+#search-title {
+  margin-top: 10px;
+}
+
+.search-item {
+  float: left;
+  padding: 10px;
+}
+label {
+  display: block;
+  margin-left: 30px;
+}
+
+h1,
+h2 {
+  margin-left: 30px;
+  text-align: center;
+  color: slateblue;
+}
+
+input[type="text"] {
+  margin: 10px 30px;
+  height: 30px;
+  font-size: 16px;
+}
+
+button:hover,
+input[type="submit"]:hover {
+  background: darkblue;
+}
+
+button.active {
+  background: darkblue;
+}
+
+button,
+input[type="submit"] {
+  background-color: blueviolet;
+  color: gold;
+  border: 2px solid gold;
+  border-radius: 5px;
+  padding: 6px 15px;
+  font-size: 17px;
+  margin: 20px 10px 10px 30px;
+  cursor: pointer;
+  box-shadow: 2px 2px 3px #bbb;
+}
