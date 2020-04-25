@@ -22,6 +22,18 @@ function renderButtons() {
   }
 }
 
+$("#addPokemon").on("click", function(event) {
+    event.preventDefault();
+    var searchInput = $("#pokemon-input").val();
+    gifbuttons.push(searchInput);
+    var button = $("<button>").text(searchInput);
+    button.attr("data-buttonvalue", searchInput);
+    button.addClass("pokemon-btn");
+    $("#gifbutton").append(button);
+    $("#player-input").val("");
+    console.log(searchInput);
+  });
+
 function displayRatingInfo() {
   var r = $(this).attr("data-name");
   var queryURL =
@@ -51,34 +63,14 @@ function displayRatingInfo() {
     }
   });
 
-  $("#add-pokemon").on("click", function() {
-    var pokes = $("#pokemon-input")
-      .val()
-      .trim();
-    pokemon.push(pokes);
-    renderButtons();
-  });
-}
-
-//   $("#add-pokemon").on("click", function(event) {
-//     event.preventDefault();
-//     // capture input from the form
-//     var addPoke = $("#addPoke-input")
+//   $("#add-pokemon").on("click", function() {
+//     var pokes = $("#pokemon-input")
 //       .val()
 //       .trim();
-//     // check if topic exsits already
-//     if (
-//       topics
-//         .toString()
-//         .toLowerCase()
-//         .indexOf(addPoke.toLowerCase()) != -1
-//     ) {
-//       alert("Topic already exists");
-//     } else {
-//       topics.push(addPoke);
-//       renderButtons();
-//     }
+//     pokemon.push(pokes);
+//     renderButtons();
 //   });
+// }
 
 $("#pokemon-view").on("click", ".pause", function() {
   var state = $(this).attr("data-state");
