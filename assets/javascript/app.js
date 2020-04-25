@@ -77,8 +77,8 @@ $(document).ready(function() {
       $(this).attr("data-state", "still");
     }
   });
+
+  $(document).on("click", ".pokemon-btn", displayRatingInfo);
+
+  renderButtons();
 });
-
-$(document).on("click", ".pokemon-btn", displayRatingInfo);
-
-renderButtons();
