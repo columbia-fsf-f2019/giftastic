@@ -51,48 +51,47 @@ function displayRatingInfo() {
     }
   });
 
-  //   $("#add-pokemon").on("click", function() {
-  //     var pokes = $("#pokemon-input")
-  //       .val()
-  //       .trim();
-  //     pokemon.push(pokes);
-  //     renderButtons();
-  //   });
-  // }
-
-  $("#add-pokemon").on("click", function(event) {
-    event.preventDefault();
-    // capture input from the form
-    var addPoke = $("#addPoke-input")
+  $("#add-pokemon").on("click", function() {
+    var pokes = $("#pokemon-input")
       .val()
       .trim();
-    // check if topic exsits already
-    if (
-      topics
-        .toString()
-        .toLowerCase()
-        .indexOf(addPoke.toLowerCase()) != -1
-    ) {
-      alert("Topic already exists");
-    } else {
-      topics.push(addPoke);
-      renderButtons();
-    }
+    pokemon.push(pokes);
+    renderButtons();
   });
-
-  $("#pokemon-view").on("click", ".pause", function() {
-    var state = $(this).attr("data-state");
-
-    if (state === "still") {
-      $(this).attr("src", $(this).attr("data-animate"));
-      $(this).attr("data-state", "animate");
-    } else {
-      $(this).attr("src", $(this).attr("data-still"));
-      $(this).attr("data-state", "still");
-    }
-  });
-
-  $(document).on("click", ".pokemon-btn", displayRatingInfo);
-
-  renderButtons();
 }
+
+//   $("#add-pokemon").on("click", function(event) {
+//     event.preventDefault();
+//     // capture input from the form
+//     var addPoke = $("#addPoke-input")
+//       .val()
+//       .trim();
+//     // check if topic exsits already
+//     if (
+//       topics
+//         .toString()
+//         .toLowerCase()
+//         .indexOf(addPoke.toLowerCase()) != -1
+//     ) {
+//       alert("Topic already exists");
+//     } else {
+//       topics.push(addPoke);
+//       renderButtons();
+//     }
+//   });
+
+$("#pokemon-view").on("click", ".pause", function() {
+  var state = $(this).attr("data-state");
+
+  if (state === "still") {
+    $(this).attr("src", $(this).attr("data-animate"));
+    $(this).attr("data-state", "animate");
+  } else {
+    $(this).attr("src", $(this).attr("data-still"));
+    $(this).attr("data-state", "still");
+  }
+});
+
+$(document).on("click", ".pokemon-btn", displayRatingInfo);
+
+renderButtons();
