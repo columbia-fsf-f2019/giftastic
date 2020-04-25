@@ -30,7 +30,7 @@ $("#addPokemon").on("click", function(event) {
     button.attr("data-buttonvalue", searchInput);
     button.addClass("pokemon-btn");
     $("#gifbutton").append(button);
-    $("#player-input").val("");
+    $("#pokemon-input").val("");
     console.log(searchInput);
   });
 
@@ -60,7 +60,7 @@ function displayRatingInfo() {
       pokemonDiv.prepend(p);
       pokemonDiv.prepend(pokemonImage);
       $("#pokemon-view").prepend(pokemonDiv);
-    }
+  }
   });
 
 //   $("#add-pokemon").on("click", function() {
