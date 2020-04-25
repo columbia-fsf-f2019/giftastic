@@ -55,29 +55,49 @@ $(document).ready(function() {
       }
     });
 
-    $("#add-pokemon").on("click", function() {
-      var input = $("#pokemon-input")
+    //   $("#add-pokemon").on("click", function() {
+    //     var pokes = $("#pokemon-input")
+    //       .val()
+    //       .trim();
+    //     pokemon.push(pokes);
+    //     renderButtons();
+    //   });
+    // }
+
+    $("#add-pokemon").on("click", function(event) {
+      event.preventDefault();
+      // capture input from the form
+      var addPoke = $("#addPoke-input")
         .val()
         .trim();
-      form.reset();
-      displayedButtons.push(input);
-      renderButtons();
+      // check if topic exsits already
+      if (
+        topics
+          .toString()
+          .toLowerCase()
+          .indexOf(addPoke.toLowerCase()) != -1
+      ) {
+        alert("Topic already exists");
+      } else {
+        topics.push(addPoke);
+        renderButtons();
+      }
     });
+
+    $("#pokemon-view").on("click", ".pause", function() {
+      var state = $(this).attr("data-state");
+
+      if (state === "still") {
+        $(this).attr("src", $(this).attr("data-animate"));
+        $(this).attr("data-state", "animate");
+      } else {
+        $(this).attr("src", $(this).attr("data-still"));
+        $(this).attr("data-state", "still");
+      }
+    });
+
+    $(document).on("click", ".pokemon-btn", displayRatingInfo);
+
+    renderButtons();
   }
-
-  $("#pokemon-view").on("click", ".pause", function() {
-    var state = $(this).attr("data-state");
-
-    if (state === "still") {
-      $(this).attr("src", $(this).attr("data-animate"));
-      $(this).attr("data-state", "animate");
-    } else {
-      $(this).attr("src", $(this).attr("data-still"));
-      $(this).attr("data-state", "still");
-    }
-  });
-
-  $(document).on("click", ".pokemon-btn", displayRatingInfo);
-
-  renderButtons();
 });
