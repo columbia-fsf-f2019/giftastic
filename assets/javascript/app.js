@@ -23,16 +23,16 @@ function renderButtons() {
 }
 
 $("#addPokemon").on("click", function(event) {
-    event.preventDefault();
-    var searchInput = $("#pokemon-input").val();
-    gifbuttons.push(searchInput);
-    var button = $("<button>").text(searchInput);
-    button.attr("data-buttonvalue", searchInput);
-    button.addClass("pokemon-btn");
-    $("#gifbutton").append(button);
-    $("#pokemon-input").val("");
-    console.log(searchInput);
-  });
+  event.preventDefault();
+  var searchInput = $("#pokemon-input").val();
+  gifbuttons.push(searchInput);
+  var button = $("<button>").text(searchInput);
+  button.attr("data-buttonvalue", searchInput);
+  button.addClass("pokemon-btn");
+  $("#gifbutton").append(button);
+  $("#pokemon-input").val("");
+  console.log(searchInput);
+});
 
 function displayRatingInfo() {
   var r = $(this).attr("data-name");
@@ -60,8 +60,9 @@ function displayRatingInfo() {
       pokemonDiv.prepend(p);
       pokemonDiv.prepend(pokemonImage);
       $("#pokemon-view").prepend(pokemonDiv);
-  }
+    }
   });
+}
 
 //   $("#add-pokemon").on("click", function() {
 //     var pokes = $("#pokemon-input")
