@@ -62,7 +62,6 @@ $(document).ready(function() {
       form.reset();
       displayedButtons.push(input);
       renderButtons();
-      return false;
     });
   }
 
