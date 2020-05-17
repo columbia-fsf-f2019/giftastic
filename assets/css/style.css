@@ -1,0 +1,57 @@
+body {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 20px;
+}
+
+.pokemon-btn {
+    font-size: 30px;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+button,
+    div,
+    form,
+    input {
+        margin: 10px;
+}
+
+.container {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 20px;
+}
+
+#buttons-view {
+    width: 75%;
+}
+
+#add-pokemon {
+    font-size: 30px;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.form-group {
+    width: 100%;
+    float: right;
+}
+
+#pokemon-view{
+    width: 80%;
+    float: left;
+    display: inline-block;
+}
+
+#pokemon-input {
+    width: 100%;
+    padding: 4px;
+    font-size: 16px;
+    font-family: 'Courier New', Courier, monospace
+}
+
+.pokeE {
+    float: left;
+    margin: 15px;
+}
+
+form {
+    float: right;
+}
